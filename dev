@@ -1,1 +1,2 @@
-uv run uvicorn src.server:app --reload
+#!/usr/bin/env bash
+uv run python -m chayan.chunk
