@@ -20,4 +20,5 @@ Start Project: 06/10/2026
 - the llm integration i belive it'll be a complex so let's see 
 
 ## Way to Run a Server:
-: `./dev`
+- uv sync
+- `./dev`
