@@ -1,15 +1,8 @@
 [project]
 name = "chayan"
 version = "0.0.1"
-readme = "README.md"
 requires-python = "==3.11.9"
-dependencies = [
-    "pypdf", "numpy", "ollama",
-    "fastapi>=0.110.0",
-    "uvicorn>=0.28.0",
-    "langchain>=0.1.0",
-    "chromadb>=0.4.0",
-]
+dependencies = ["pypdf", "numpy", "ollama", "fonttools"]
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

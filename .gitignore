@@ -4,3 +4,8 @@
 venv
 *.env
 !env.example
+.cache
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo

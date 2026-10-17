@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-uv run python -m chayan.chunk
+# uv run python -m chayan.chunk
+
+uv run python -m chayan.${1:-ask}
