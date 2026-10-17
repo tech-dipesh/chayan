@@ -1,6 +1,8 @@
 import json
 import random
+
 import ollama
+
 from chayan.config import llm, root
 from chayan.index import load_index
 
