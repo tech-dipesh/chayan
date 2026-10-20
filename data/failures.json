@@ -1,0 +1,303 @@
+[
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What is the MSCI rating improvement mentioned by Tencent Holdings?",
+  "page": 7,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was Tencent's ESG rating upgraded to?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was Borrowings for 31 December 2025?",
+  "page": 25,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was Net fair value gains for 2025?",
+  "page": 24,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was Interest and related expenses for 31 December 2024?",
+  "page": 18,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "dense",
+  "question": "What was Depreciation of right-of-use assets for 2024?",
+  "page": 19,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "bm25",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What is the MSCI rating improvement mentioned by Tencent Holdings?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What was Interest and related expenses for 31 December 2024?",
+  "page": 18,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "fixed",
+  "retriever": "hybrid",
+  "question": "What was Depreciation of right-of-use assets for 2024?",
+  "page": 19,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What is the MSCI rating improvement mentioned by Tencent Holdings?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was Tencent's ESG rating upgraded to?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was Adjusted EBITDA for 2024?",
+  "page": 19,
+  "label": "table flattened"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was Net fair value gains for 2025?",
+  "page": 24,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was Interest and related expenses for 31 December 2024?",
+  "page": 18,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "dense",
+  "question": "What was Depreciation of right-of-use assets for 2024?",
+  "page": 19,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "bm25",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "hybrid",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "hybrid",
+  "question": "What was Interest and related expenses for 31 December 2024?",
+  "page": 18,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "recursive",
+  "retriever": "hybrid",
+  "question": "What was Depreciation of right-of-use assets for 2024?",
+  "page": 19,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "dense",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "dense",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "dense",
+  "question": "What is the MSCI rating improvement mentioned by Tencent Holdings?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "dense",
+  "question": "What was Tencent's ESG rating upgraded to?",
+  "page": 7,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "bm25",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "bm25",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "embedding miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in the most recent quarter?",
+  "page": 21,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "hybrid",
+  "question": "What was the profit for the year in 2025?",
+  "page": 22,
+  "label": "ranking miss"
+ },
+ {
+  "chunker": "table",
+  "retriever": "hybrid",
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "page": 21,
+  "label": "embedding miss"
+ }
+]

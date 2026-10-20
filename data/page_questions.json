@@ -1,0 +1,176 @@
+[
+ {
+  "question": "What is the average quarterly DAU for domestic and international evergreen games to qualify?",
+  "answer": "5 million",
+  "page": 6,
+  "kind": "prose"
+ },
+ {
+  "question": "What are the non-IFRS financial measures used to supplement?",
+  "answer": "To supplement the consolidated results",
+  "page": 20,
+  "kind": "prose"
+ },
+ {
+  "question": "What was the profit for the period in the most recent quarter?",
+  "answer": "72,796",
+  "page": 21,
+  "kind": "prose"
+ },
+ {
+  "question": "What items are excluded from the non-IFRS financial measures?",
+  "answer": "Certain non-cash items and certain impact of investment-related transactions",
+  "page": 20,
+  "kind": "prose"
+ },
+ {
+  "question": "What was the net cash position at the end of 2025?",
+  "answer": "107,145",
+  "page": 25,
+  "kind": "prose"
+ },
+ {
+  "question": "What was the profit for the year in 2025?",
+  "answer": "266,965",
+  "page": 22,
+  "kind": "prose"
+ },
+ {
+  "question": "How many outstanding scientists were supported by Tencent's programs?",
+  "answer": "430",
+  "page": 7,
+  "kind": "prose"
+ },
+ {
+  "question": "What was the profit for the period in millions for the year ended December 31, 2024?",
+  "answer": "56,477",
+  "page": 21,
+  "kind": "prose"
+ },
+ {
+  "question": "What type of borrowings does the Group hold?",
+  "answer": "Floating rate borrowings",
+  "page": 26,
+  "kind": "prose"
+ },
+ {
+  "question": "What is the MSCI rating improvement mentioned by Tencent Holdings?",
+  "answer": "From BBB to A",
+  "page": 7,
+  "kind": "prose"
+ },
+ {
+  "question": "What was Tencent's ESG rating upgraded to?",
+  "answer": "MSCI rating upgrade from BBB to A",
+  "page": 7,
+  "kind": "prose"
+ },
+ {
+  "question": "What types of debts does the Group have?",
+  "answer": "Borrowings and notes payable",
+  "page": 26,
+  "kind": "prose"
+ },
+ {
+  "question": "What additional measures are presented to supplement the Group's results?",
+  "answer": "These unaudited non-IFRS financial measures",
+  "page": 20,
+  "kind": "prose"
+ },
+ {
+  "question": "What was the profit attributable to equity holders of the Company in 2025?",
+  "answer": "RMB224,842 million",
+  "page": 5,
+  "kind": "prose"
+ },
+ {
+  "question": "What types of investments are accounted for by using equity method?",
+  "answer": "investments in associates and joint ventures",
+  "page": 23,
+  "kind": "prose"
+ },
+ {
+  "question": "What was Cash and cash equivalents for 30 September 2025?",
+  "answer": "159,982",
+  "label": "Cash and cash equivalents",
+  "page": 25,
+  "kind": "table"
+ },
+ {
+  "question": "What was Borrowings for 31 December 2025?",
+  "answer": "(250,987)",
+  "label": "Borrowings",
+  "page": 25,
+  "kind": "table"
+ },
+ {
+  "question": "What was Net cash for 30 September 2025?",
+  "answer": "102,422",
+  "label": "Net cash",
+  "page": 25,
+  "kind": "table"
+ },
+ {
+  "question": "What was Notes payable for 30 September 2025?",
+  "answer": "(138,037)",
+  "label": "Notes payable",
+  "page": 25,
+  "kind": "table"
+ },
+ {
+  "question": "What was Adjusted EBITDA for 2024?",
+  "answer": "277,012",
+  "label": "Adjusted EBITDA",
+  "page": 19,
+  "kind": "table"
+ },
+ {
+  "question": "What was Dividend income for 2025?",
+  "answer": "1,797",
+  "label": "Dividend income",
+  "page": 24,
+  "kind": "table"
+ },
+ {
+  "question": "What was Equity-settled share-based compensation for 2025?",
+  "answer": "25,660",
+  "label": "Equity-settled share-based compensation",
+  "page": 19,
+  "kind": "table"
+ },
+ {
+  "question": "What was Net fair value gains for 2025?",
+  "answer": "2,824",
+  "label": "Net fair value gains",
+  "page": 24,
+  "kind": "table"
+ },
+ {
+  "question": "What was Interest and related expenses for 31 December 2024?",
+  "answer": "13,456",
+  "label": "Interest and related expenses",
+  "page": 18,
+  "kind": "table"
+ },
+ {
+  "question": "What was Term deposits and others for 31 December 2025?",
+  "answer": "353,837",
+  "label": "Term deposits and others",
+  "page": 25,
+  "kind": "table"
+ },
+ {
+  "question": "What was Depreciation of right-of-use assets for 2024?",
+  "answer": "6,191",
+  "label": "Depreciation of right-of-use assets",
+  "page": 19,
+  "kind": "table"
+ },
+ {
+  "question": "What was EBITDA for 2025?",
+  "answer": "310,767",
+  "label": "EBITDA",
+  "page": 19,
+  "kind": "table"
+ }
+]
