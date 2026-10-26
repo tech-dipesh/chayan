@@ -1,4 +1,5 @@
 import re
+
 from chayan.ingest import read_pages
 
 num = r"\(?[\d,]+(?:\.\d+)?%?\)?|–"

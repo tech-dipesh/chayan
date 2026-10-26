@@ -1,5 +1,13 @@
+import re
+
+def norm(text): return re.sub(r"[^a-z0-9]", "", text.lower())
+
 def hit_rank(hits, evidence):
     return next((i + 1 for i, h in enumerate(hits) if evidence in h["text"]), None)
+
+def hit_rank_page(hits, q):
+    a = norm(q["answer"])
+    return next((i + 1 for i, h in enumerate(hits) if h["page"] == q["page"] and a in norm(h["text"])), None)
 
 def summarize(ranks, ks=(1, 3, 5)):
     n = len(ranks)
