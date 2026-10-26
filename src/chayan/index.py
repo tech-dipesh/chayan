@@ -1,9 +1,12 @@
 import hashlib
 import json
+
 import numpy as np
+
 from chayan.chunk import make_chunks
 from chayan.chunk_table import make_table_chunks
-from chayan.config import embed as model, root
+from chayan.config import embed as model
+from chayan.config import root
 from chayan.embed import embed_texts
 from chayan.ingest import read_pages
 from chayan.recursive import make_recursive
