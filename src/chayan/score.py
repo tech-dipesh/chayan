@@ -1,5 +1,6 @@
 import re
 
+
 def norm(text): return re.sub(r"[^a-z0-9]", "", text.lower())
 
 def hit_rank(hits, evidence):

@@ -1,20 +1,22 @@
 import json
 import sys
 import time
-
 from chayan.bm25 import bm25_search, build
 from chayan.config import root
 from chayan.hybrid import hybrid_search
 from chayan.index import chunkers, load_index
 from chayan.page_questions import make_page_questions
+from chayan.pipeline import run
 from chayan.questions import make_questions
+from chayan.router import pick
 from chayan.score import hit_rank, hit_rank_page, summarize
 from chayan.search import search
-
 
 def retrieve(kind, q, chunks, vectors, idx):
     if kind == "bm25": return bm25_search(q, chunks, idx, 5)
     if kind == "hybrid": return hybrid_search(q, chunks, vectors, idx)
+    if kind == "routed": return bm25_search(q, chunks, idx, 5) if pick(q) == "bm25" else hybrid_search(q, chunks, vectors, idx)
+    if kind == "reranked": return run(q, chunks, vectors, idx)[1]
     return search(q, chunks, vectors, 5)
 
 def mrr_of(ranks): return sum(1 / r for r in ranks if r) / len(ranks) if ranks else 0
@@ -27,7 +29,7 @@ def main():
     for name in chunkers:
         chunks, vectors = load_index(name)
         idx = build(chunks)
-        for kind in ("dense", "bm25", "hybrid"):
+        for kind in ["dense", "bm25", "hybrid", "routed"] + (["reranked"] if mode == "page" and name == "table" else []):
             ranks, times = [], []
             for q in qs:
                 t = time.time()
