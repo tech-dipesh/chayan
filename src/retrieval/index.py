@@ -1,15 +1,12 @@
 import hashlib
 import json
-
 import numpy as np
-
-from chayan.chunk import make_chunks
-from chayan.chunk_table import make_table_chunks
-from chayan.config import embed as model
-from chayan.config import root
-from chayan.embed import embed_texts
-from chayan.ingest import read_pages
-from chayan.recursive import make_recursive
+from src.chunking.fixed import make_chunks
+from src.chunking.table import make_table_chunks
+from src.config import embed as model, root
+from src.retrieval.embed import embed_texts
+from src.ingest.pages import read_pages
+from src.chunking.recursive import make_recursive
 
 cache = root / ".cache"
 chunkers = {"fixed": make_chunks, "recursive": make_recursive, "table": make_table_chunks}

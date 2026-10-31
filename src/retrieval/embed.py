@@ -1,8 +1,6 @@
 import numpy as np
 import ollama
-
-from chayan.config import embed as model
-
+from src.config import embed as model
 
 def embed_texts(texts, prefix="search_document: "):
     out = []

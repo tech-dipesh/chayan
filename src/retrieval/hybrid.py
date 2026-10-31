@@ -1,6 +1,5 @@
-from chayan.bm25 import bm25_search
-from chayan.search import search
-
+from src.retrieval.bm25 import bm25_search
+from src.retrieval.dense import search
 
 def rrf(lists, k=5, c=60):
     score, keep = {}, {}

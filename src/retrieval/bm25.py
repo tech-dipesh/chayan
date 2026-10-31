@@ -1,9 +1,7 @@
 import math
 import re
 from collections import Counter
-
 import numpy as np
-
 
 def tokens(text): return re.findall(r"\w+", text.lower())
 
