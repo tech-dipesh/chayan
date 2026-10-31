@@ -1,6 +1,5 @@
 import re
-
-from chayan.ingest import read_pages
+from src.ingest.pages import read_pages
 
 num = r"\(?[\d,]+(?:\.\d+)?%?\)?|–"
 years = re.compile(r"\b20\d\d\b")

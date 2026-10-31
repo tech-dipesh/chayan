@@ -1,8 +1,6 @@
 import logging
-
 from pypdf import PdfReader
-
-from chayan.config import first_page, last_page, pdf_path
+from src.config import pdf_path, first_page, last_page
 
 logging.getLogger("pypdf").setLevel(logging.ERROR)
 
