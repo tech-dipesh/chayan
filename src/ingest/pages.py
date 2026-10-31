@@ -1,6 +1,8 @@
 import logging
+
 from pypdf import PdfReader
-from src.config import pdf_path, first_page, last_page
+
+from src.config import first_page, last_page, pdf_path
 
 logging.getLogger("pypdf").setLevel(logging.ERROR)
 

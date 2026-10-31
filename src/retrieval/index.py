@@ -1,12 +1,15 @@
 import hashlib
 import json
+
 import numpy as np
+
 from src.chunking.fixed import make_chunks
-from src.chunking.table import make_table_chunks
-from src.config import embed as model, root
-from src.retrieval.embed import embed_texts
-from src.ingest.pages import read_pages
 from src.chunking.recursive import make_recursive
+from src.chunking.table import make_table_chunks
+from src.config import embed as model
+from src.config import root
+from src.ingest.pages import read_pages
+from src.retrieval.embed import embed_texts
 
 cache = root / ".cache"
 chunkers = {"fixed": make_chunks, "recursive": make_recursive, "table": make_table_chunks}
