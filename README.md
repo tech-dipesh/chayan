@@ -82,3 +82,30 @@ predictable, but it cuts through sentences and through table rows.
 Recursive chunker: try to split on blank lines, then on line breaks, then on ". ", then
 on spaces, and pack the pieces up to 800 characters. Chunks end where the text naturally
 ends. Chunks under 50 characters are dropped as page-number noise.
+
+## RAG:
+The Rag that is on the : `search.py, bm25.py and hybrid.py` for the G answer.py for answre wth the augmentation prompt buidl for the `answer.py` with a chunk label where else it can response with a `I am unaware about it`
+
+## Vector Database:
+As of now the vector database haven't implemented as of now just a simplest implemntation value, is somethings that on the index from a `numpy` array. With the one row per chunking form, 768 numbers per row value.
+The Every row is on the scaled length 1. For the `cosine similarity` for the dot product. for building a simpler values, `vectores @ query`. For the 70 chunk each chunking happend on the `microseconds.` a database for the Chroma db for the FAISS earns the place for the brute force going slow.
+When the filter and the update happaned for the hide part on the matter form.
+
+## Ollama Used:
+Ollama runs as a local server. The python package ollama sends it two kinds of requests:
+
+- ollama.embed with nomic-embed-text, in batches of 32. nomic expects a prefix, so chunks
+  go in as "search_document: ..." and questions as "search_query: ...".
+- ollama.chat with qwen2.5:3b and stream=True, so words appear as they are generated.
+
+Model names live in config.py, so trying another model is one line.
+
+## Retrievers
+
+- dense: meaning match through embeddings. Good at paraphrase, weak at exact tokens
+  like HKD5.30 or a name.
+- bm25: keyword match with term rarity and length weighting, written in plain python.
+- hybrid: take the top 20 of each and merge with reciprocal rank fusion, score
+  1 / (60 + rank). Only ranks are used, so the two score scales never need to match.
+
+ask.py currently uses dense only. bm25 and hybrid are used by the evaluation first.

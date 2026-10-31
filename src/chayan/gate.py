@@ -3,7 +3,8 @@ from chayan.bm25 import build
 from chayan.config import root
 from chayan.index import load_index
 from chayan.page_questions import make_page_questions
-from chayan.pipeline import run
+from chayan.pipeline import gate_score, run
+from chayan.rewrite import rewrite
 
 unaware = [
     "When was Tencent founded?",
@@ -19,9 +20,11 @@ unaware = [
 ]
 
 def main():
-    chunks, vectors = load_index("table")
+    chunks, _ = load_index("table")
     idx = build(chunks)
-    top = lambda q: run(q, chunks, vectors, idx)[1][0]["rerank"]
+    def top(q):
+        q = rewrite(q)
+        return gate_score(q, run(q, chunks, idx))
     good = [top(q["question"]) for q in make_page_questions()]
     bad = [top(q) for q in unaware]
     print("cutoff  answerable kept  unaware rejected")

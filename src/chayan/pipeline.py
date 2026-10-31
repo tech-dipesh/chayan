@@ -1,16 +1,11 @@
 import json
-
 from chayan.bm25 import bm25_search
 from chayan.config import root
-from chayan.hybrid import hybrid_search
-from chayan.rerank import rerank
-from chayan.router import pick
+from chayan.judge import score_chunk
 
+def run(question, chunks, idx, k=5): return bm25_search(question, chunks, idx, k)
 
-def run(question, chunks, vectors, idx, pool=8, k=5):
-    route = pick(question)
-    hits = bm25_search(question, chunks, idx, pool) if route == "bm25" else hybrid_search(question, chunks, vectors, idx, pool)
-    return route, rerank(question, hits, k)
+def gate_score(question, hits, n=3): return max(score_chunk(question, h["text"]) for h in hits[:n])
 
 def load_cutoff():
     f = root / "data" / "cutoff.json"

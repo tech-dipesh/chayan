@@ -1,35 +1,49 @@
 import json
 import sys
 import time
+
 from chayan.bm25 import bm25_search, build
 from chayan.config import root
 from chayan.hybrid import hybrid_search
 from chayan.index import chunkers, load_index
+from chayan.multi_questions import make_multi_questions
 from chayan.page_questions import make_page_questions
-from chayan.pipeline import run
 from chayan.questions import make_questions
+from chayan.rewrite import rewrite
 from chayan.router import pick
-from chayan.score import hit_rank, hit_rank_page, summarize
+from chayan.score import covered, hit_rank, hit_rank_page, summarize
 from chayan.search import search
+
 
 def retrieve(kind, q, chunks, vectors, idx):
     if kind == "bm25": return bm25_search(q, chunks, idx, 5)
     if kind == "hybrid": return hybrid_search(q, chunks, vectors, idx)
     if kind == "routed": return bm25_search(q, chunks, idx, 5) if pick(q) == "bm25" else hybrid_search(q, chunks, vectors, idx)
-    if kind == "reranked": return run(q, chunks, vectors, idx)[1]
+    if kind == "rewrite": return bm25_search(rewrite(q), chunks, idx, 5)
     return search(q, chunks, vectors, 5)
 
 def mrr_of(ranks): return sum(1 / r for r in ranks if r) / len(ranks) if ranks else 0
 
+def multi():
+    qs = make_multi_questions()
+    print(f"{'chunker':10} {'retriever':8} both@5 any@5")
+    for name in chunkers:
+        chunks, vectors = load_index(name)
+        idx = build(chunks)
+        for kind in ("dense", "bm25", "hybrid"):
+            got = [covered(retrieve(kind, q["question"], chunks, vectors, idx), q) for q in qs]
+            print(f"{name:10} {kind:8} {sum(g == 2 for g in got) / len(got):7.2f} {sum(g >= 1 for g in got) / len(got):6.2f}")
+
 def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "chunk"
+    if mode == "multi": return multi()
     qs = make_page_questions() if mode == "page" else make_questions()
     rows = []
     print(f"{'chunker':10} {'retriever':8} hit@1 hit@3 hit@5   mrr prose table  ms")
     for name in chunkers:
         chunks, vectors = load_index(name)
         idx = build(chunks)
-        for kind in ["dense", "bm25", "hybrid", "routed"] + (["reranked"] if mode == "page" and name == "table" else []):
+        for kind in ("dense", "bm25", "hybrid", "routed", "rewrite"):
             ranks, times = [], []
             for q in qs:
                 t = time.time()
