@@ -3,10 +3,10 @@ import random
 import re
 from collections import Counter
 import ollama
-from chayan.config import llm, root
-from chayan.ingest import read_pages
-from chayan.pdf_tables import read_tables
-from chayan.score import norm
+from src.config import llm, root
+from src.ingest.pages import read_pages
+from src.ingest.tables import read_tables
+from src.evaluation.score import norm
 
 path = root / "data" / "page_questions.json"
 

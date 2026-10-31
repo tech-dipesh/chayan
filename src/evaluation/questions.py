@@ -1,10 +1,8 @@
 import json
 import random
-
 import ollama
-
-from chayan.config import llm, root
-from chayan.index import load_index
+from src.config import llm, root
+from src.retrieval.index import load_index
 
 path = root / "data" / "questions.json"
 

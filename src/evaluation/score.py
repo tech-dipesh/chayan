@@ -1,6 +1,5 @@
 import re
 
-
 def norm(text): return re.sub(r"[^a-z0-9]", "", text.lower())
 
 def hit_rank(hits, evidence):
@@ -15,3 +14,5 @@ def summarize(ranks, ks=(1, 3, 5)):
     hit = {k: sum(r is not None and r <= k for r in ranks) / n for k in ks}
     mrr = sum(1 / r for r in ranks if r) / n
     return hit, mrr
+
+def covered(hits, q): return sum(any(h["page"] == a["page"] and norm(a["answer"]) in norm(h["text"]) for h in hits) for a in q["answers"])

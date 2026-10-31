@@ -1,13 +1,13 @@
 import json
 import re
 from collections import Counter
-from chayan.bm25 import bm25_search, build
-from chayan.config import root
-from chayan.hybrid import hybrid_search
-from chayan.index import chunkers, load_index
-from chayan.page_questions import make_page_questions
-from chayan.score import hit_rank_page, norm
-from chayan.search import search
+from src.retrieval.bm25 import bm25_search, build
+from src.config import root
+from src.retrieval.hybrid import hybrid_search
+from src.retrieval.index import chunkers, load_index
+from src.evaluation.page_questions import make_page_questions
+from src.evaluation.score import hit_rank_page, norm
+from src.retrieval.dense import search
 
 labels = ("split evidence", "table flattened", "embedding miss", "ranking miss")
 

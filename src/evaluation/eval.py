@@ -1,19 +1,17 @@
 import json
 import sys
 import time
-
-from chayan.bm25 import bm25_search, build
-from chayan.config import root
-from chayan.hybrid import hybrid_search
-from chayan.index import chunkers, load_index
-from chayan.multi_questions import make_multi_questions
-from chayan.page_questions import make_page_questions
-from chayan.questions import make_questions
-from chayan.rewrite import rewrite
-from chayan.router import pick
-from chayan.score import covered, hit_rank, hit_rank_page, summarize
-from chayan.search import search
-
+from src.retrieval.bm25 import bm25_search, build
+from src.config import root
+from src.retrieval.hybrid import hybrid_search
+from src.retrieval.index import chunkers, load_index
+from src.evaluation.multi_questions import make_multi_questions
+from src.evaluation.page_questions import make_page_questions
+from src.evaluation.questions import make_questions
+from src.retrieval.rewrite import rewrite
+from src.retrieval.router import pick
+from src.evaluation.score import covered, hit_rank, hit_rank_page, summarize
+from src.retrieval.dense import search
 
 def retrieve(kind, q, chunks, vectors, idx):
     if kind == "bm25": return bm25_search(q, chunks, idx, 5)
