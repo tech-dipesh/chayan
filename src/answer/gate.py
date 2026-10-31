@@ -1,10 +1,10 @@
 import json
-from chayan.bm25 import build
-from chayan.config import root
-from chayan.index import load_index
-from chayan.page_questions import make_page_questions
-from chayan.pipeline import gate_score, run
-from chayan.rewrite import rewrite
+from src.retrieval.bm25 import build
+from src.config import root
+from src.retrieval.index import load_index
+from src.evaluation.page_questions import make_page_questions
+from src.answer.pipeline import gate_score, run
+from src.retrieval.rewrite import rewrite
 
 unaware = [
     "When was Tencent founded?",

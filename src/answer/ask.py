@@ -1,10 +1,9 @@
-from chayan.answer import ask_llm
-from chayan.bm25 import build
-from chayan.config import top_k
-from chayan.index import load_index
-from chayan.pipeline import gate_score, load_cutoff, run
-from chayan.rewrite import rewrite
-
+from src.answer.llm import ask_llm
+from src.retrieval.bm25 import build
+from src.config import top_k
+from src.retrieval.index import load_index
+from src.answer.pipeline import gate_score, load_cutoff, run
+from src.retrieval.rewrite import rewrite
 
 def main():
     chunks, _ = load_index("table")

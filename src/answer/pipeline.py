@@ -1,7 +1,7 @@
 import json
-from chayan.bm25 import bm25_search
-from chayan.config import root
-from chayan.judge import score_chunk
+from src.retrieval.bm25 import bm25_search
+from src.config import root
+from src.answer.judge import score_chunk
 
 def run(question, chunks, idx, k=5): return bm25_search(question, chunks, idx, k)
 
