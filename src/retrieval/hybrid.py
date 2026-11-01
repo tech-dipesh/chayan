@@ -1,6 +1,7 @@
 from src.retrieval.bm25 import bm25_search
 from src.retrieval.dense import search
 
+
 def rrf(lists, k=5, c=60):
     score, keep = {}, {}
     for hits in lists:
@@ -10,5 +11,5 @@ def rrf(lists, k=5, c=60):
     best = sorted(score, key=score.get, reverse=True)[:k]
     return [{**keep[t], "score": score[t]} for t in best]
 
-def hybrid_search(query, chunks, vectors, idx, k=5, pool=20):
-    return rrf([search(query, chunks, vectors, pool), bm25_search(query, chunks, idx, pool)], k)
+def hybrid_search(query, chunks, vectors, idx, k=5, pool=20, w=None):
+    return rrf([search(query, chunks, vectors, pool, w), bm25_search(query, chunks, idx, pool)], k)

@@ -12,12 +12,18 @@ from src.retrieval.rewrite import rewrite
 from src.retrieval.router import pick
 from src.evaluation.score import covered, hit_rank, hit_rank_page, summarize
 from src.retrieval.dense import search
+from src.training.adapter import load_adapter
+
+adapter = load_adapter()
+kinds = (("dense+a", "hybrid+a") if adapter is not None else ())
 
 def retrieve(kind, q, chunks, vectors, idx):
     if kind == "bm25": return bm25_search(q, chunks, idx, 5)
     if kind == "hybrid": return hybrid_search(q, chunks, vectors, idx)
     if kind == "routed": return bm25_search(q, chunks, idx, 5) if pick(q) == "bm25" else hybrid_search(q, chunks, vectors, idx)
     if kind == "rewrite": return bm25_search(rewrite(q), chunks, idx, 5)
+    if kind == "dense+a": return search(q, chunks, vectors, 5, adapter)
+    if kind == "hybrid+a": return hybrid_search(q, chunks, vectors, idx, w=adapter)
     return search(q, chunks, vectors, 5)
 
 def mrr_of(ranks): return sum(1 / r for r in ranks if r) / len(ranks) if ranks else 0
@@ -28,7 +34,7 @@ def multi():
     for name in chunkers:
         chunks, vectors = load_index(name)
         idx = build(chunks)
-        for kind in ("dense", "bm25", "hybrid"):
+        for kind in ("dense", "bm25", "hybrid") + kinds:
             got = [covered(retrieve(kind, q["question"], chunks, vectors, idx), q) for q in qs]
             print(f"{name:10} {kind:8} {sum(g == 2 for g in got) / len(got):7.2f} {sum(g >= 1 for g in got) / len(got):6.2f}")
 
@@ -41,7 +47,7 @@ def main():
     for name in chunkers:
         chunks, vectors = load_index(name)
         idx = build(chunks)
-        for kind in ("dense", "bm25", "hybrid", "routed", "rewrite"):
+        for kind in ("dense", "bm25", "hybrid", "routed", "rewrite") + kinds:
             ranks, times = [], []
             for q in qs:
                 t = time.time()

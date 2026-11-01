@@ -1,6 +1,6 @@
 from pathlib import Path
 
-root = Path(__file__).resolve().parents[2]
+root = Path(__file__).resolve().parents[1] 
 pdf_path = root / "data" / "tecent.pdf"
 first_page, last_page = 5, 26
 chunk_size, overlap = 800, 100
