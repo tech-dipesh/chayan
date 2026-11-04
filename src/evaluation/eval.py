@@ -1,6 +1,7 @@
 import json
 import sys
 import time
+from src.answer.pipeline import run
 from src.retrieval.bm25 import bm25_search, build
 from src.config import root
 from src.retrieval.hybrid import hybrid_search
@@ -20,6 +21,7 @@ kinds = (("dense+a", "hybrid+a") if adapter is not None else ())
 def retrieve(kind, q, chunks, vectors, idx):
     if kind == "bm25": return bm25_search(q, chunks, idx, 5)
     if kind == "hybrid": return hybrid_search(q, chunks, vectors, idx)
+    if kind == "split": return run(q, chunks, idx, 5)
     if kind == "routed": return bm25_search(q, chunks, idx, 5) if pick(q) == "bm25" else hybrid_search(q, chunks, vectors, idx)
     if kind == "rewrite": return bm25_search(rewrite(q), chunks, idx, 5)
     if kind == "dense+a": return search(q, chunks, vectors, 5, adapter)
@@ -34,7 +36,7 @@ def multi():
     for name in chunkers:
         chunks, vectors = load_index(name)
         idx = build(chunks)
-        for kind in ("dense", "bm25", "hybrid") + kinds:
+        for kind in ("dense", "bm25", "hybrid", "split") + kinds:
             got = [covered(retrieve(kind, q["question"], chunks, vectors, idx), q) for q in qs]
             print(f"{name:10} {kind:8} {sum(g == 2 for g in got) / len(got):7.2f} {sum(g >= 1 for g in got) / len(got):6.2f}")
 
